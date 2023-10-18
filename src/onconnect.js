@@ -8,6 +8,7 @@ exports.handler = async event => {
     TableName: process.env.TABLE_NAME,
     Item: {
       connectionId: event.requestContext.connectionId,
+      createdAt: Date.now() / 1000,
       ttl: parseInt((Date.now() / 1000) + 3600)
     }
   };
